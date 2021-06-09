@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>socile link display using table</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        const links = [
+            { id: 1, name: 'facebook', url: 'http://www.facebook.com' },
+            { id: 2, name: 'instagram', url: 'http://www.instagram.com' },
+            { id: 3, name: 'twitter', url: 'http://www.twitter.com' }
+        ]
+
+        const ele = (
+            <div>
+                <h2>Total links - {links.length}</h2>
+                <table border='1px'>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {links.map((ele) => {
+                            return (
+                                <tr key={ele.id}>
+                                    <td>{ele.id}</td>
+                                    <td><a href={ele.url}>{ele.name}</a></td>
+                                    <td><a href={ele.url}>{ele.url}</a></td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        )
+
+        ReactDOM.render(ele, rootHandle)
+    </script>
+</body>
+
+</html>

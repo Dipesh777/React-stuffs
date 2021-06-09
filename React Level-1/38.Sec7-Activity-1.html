@@ -1,0 +1,79 @@
+<!-- 
+           User Status Indicator
+
+   Functional Requirements
+   
+Create multiple components LoginTrue, LoginFalse, UserStatus and App
+LoginTrue component returns green dot image (see notes below)
+LoginFalse component returns red dot image (see notes below)
+UserStatus component will return the appropriate Login component depending on the status of login and also the name of the user in h2
+You are provided an array of users and their login status
+Pass each of the user info the UserStatus component by mapping
+Render the UserStatus component inside the App component
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Status Indicator</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        // Online status component
+        
+        const LoginTrue = (props) => {
+            return <img src="https://i.ibb.co/cNfHy3b/green-dot.png" alt="Online" />
+        }
+
+        // Offline status component
+        const LoginFalse = (props) => {
+            return <img src="https://i.ibb.co/jhPVt09/red-dot.png" alt="Offline" />
+        }
+
+        
+        const UserStatus = (props) => { // child component
+            return (
+                <div>
+                    <h2> {props.isLoggedIn ? <LoginTrue /> : <LoginFalse />} {props.name}</h2>
+                </div>
+            )
+
+        }
+
+        const App = (props) => { // parent component
+
+            const users = [
+                { id: 1, name: 'adam', isLoggedIn: false },
+                { id: 2, name: 'steve', isLoggedIn: true },
+                { id: 3, name: 'dona', isLoggedIn: true },
+                { id: 4, name: 'kumar', isLoggedIn: false }
+            ]
+
+            return (
+                <div>
+                    <h1>User Login Status</h1>
+                    {users.map((ele) => {
+                        return <UserStatus key={ele.id} name={ele.name} isLoggedIn={ele.isLoggedIn} />
+                    })}
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App />, rootHandle)
+    </script>
+</body>
+
+</html>

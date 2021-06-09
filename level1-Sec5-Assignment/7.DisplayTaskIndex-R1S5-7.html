@@ -1,0 +1,60 @@
+<!-- 
+    Display Task Index
+
+Functional Requirements :-
+Create a component called as DisplayIndex
+You are provided with an array of tasks, which you need to pass as props to the component
+The component renders a list of task items
+When a user clicks on any task, display the index in which the task is found within the array
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Display Task Index
+    </title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        // Your code goes here 
+
+        const tasks = [
+            { id: 1, title: 'Task 1', isCompleted: true },
+            { id: 2, title: 'Task 2', isCompleted: true },
+            { id: 3, title: 'Task 3', isCompleted: false }
+        ]
+
+        //   component DisplayIndex
+        const DisplayIndex = (props) => {
+            const funct = (ind) => {
+                alert(`You clicked on a Task present at ${ind} index`)
+            }
+            return (
+                <ul>
+                    {props.task.map((ele, ind) => {
+                        return <li key={ele.id} onClick={() => funct(ind)}>{ele.title}</li>
+                    })}
+                </ul>
+            )
+
+        }
+
+        const ele = <DisplayIndex task={tasks} />
+
+        ReactDOM.render(ele, rootHandle)
+    </script>
+</body>
+
+</html>

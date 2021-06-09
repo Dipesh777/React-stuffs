@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template File</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+
+        // component
+        const NextPage = (props) => {
+            //callback function
+            function handleClick(e) {
+                console.log('we have prevented to going new page', e)
+                e.preventDefault()
+            }
+
+            return <a href={props.url} onClick={handleClick}> {props.name} </a>
+        }
+
+        const ele = <NextPage name='google' url='https://www.google.com' />
+
+        ReactDOM.render(ele, rootHandle)
+    </script>
+</body>
+
+</html>

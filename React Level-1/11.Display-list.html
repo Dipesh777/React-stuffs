@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creating list by hard coding</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        // const fruits = ['apple', 'mango', 'kiwi', 'banana']
+
+        // creating list to display by hard coding
+
+        // const ele = (
+        //     <ul>
+        //     <li>{fruits[0]}</li>
+        //     <li>{fruits[1]}</li>
+        //     <li>{fruits[2]}</li>
+        //     </ul>
+        // )
+
+
+
+        // now we are going to display list using for loop
+
+        // const generateLi = (arr) => {
+        //     // let result = []
+
+        //     // 1.approch using for loop
+
+        //     // for (let i = 0; i < arr.length; i++) {
+        //     //     result.push( <li> {arr[i]} </li> )
+        //     // }
+
+        //     // 2.approch we use forEach method
+
+        //     //     arr.forEach((ele) => {
+        //     //         result.push(<li> {ele} </li>)
+        //     //     })
+
+        //     // 3.approch using map() Methods
+
+        //     const result = arr.map((ele) => {
+        //         return <li> {ele} </li>
+        //     })
+        //     return result
+        // }
+
+
+        // Now from here we doing it very advance way
+        // Now we are going to embed map() Method direct inside the JSX
+
+        const fruits = ['apple', 'mango', 'kiwi', 'banana']
+
+        const ele = (
+            <ul>
+                {fruits.map((ele) => {
+                    return <li> {ele} </li>
+                })}
+            </ul>
+        )
+
+        ReactDOM.render(ele, rootHandle)
+
+    </script>
+</body>
+
+</html>

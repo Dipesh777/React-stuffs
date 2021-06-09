@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template File</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        const tasks = [
+            { id: 1, title: 'Task1', isCompleted: true },
+            { id: 2, title: 'Task2', isCompleted: true },
+            { id: 3, title: 'Task3', isCompleted: false }
+        ]
+
+        /*
+        1. create component called as TaskList
+        2. Pass only the completed Tasks as a props to component
+        3. Return an unordered list of the completed Tasks
+        */
+
+        //completed Task
+        const completedTask = tasks.filter((ele) => {
+            return ele.isCompleted
+        })
+
+
+        // Incomplete Task
+        // const incompleteTask = tasks.filter((ele) => {
+        //     return ele.isCompleted === false
+        // })
+
+        // component
+        const TaskList = (props) => {
+            return (
+                <div>
+                    <h2>{props.text} Task ({props.task.length})</h2>
+                    <ul>
+                        {props.task.map((ele) => {
+                            return <li key={ele.id}>{ele.title}</li>
+                        })}
+                    </ul>
+                </div>
+            )
+
+
+        }
+        // composing component throught App component
+
+        const App = (props) => {
+            return (
+                <div>
+                    <TaskList task={tasks} text='All' />
+                    <TaskList task={completedTask} text='Completed' />
+                    <TaskList task={tasks.filter(ele => ele.isCompleted === false)} text='Incomplete' />
+                </div>
+            )
+        }
+        
+
+        ReactDOM.render(<App/>, rootHandle)
+    </script>
+</body>
+
+</html>

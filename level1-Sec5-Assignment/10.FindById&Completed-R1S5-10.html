@@ -1,0 +1,92 @@
+<!-- 
+    Find By Id & Completed
+
+Functional Requirements:-
+Create a component called as TasksList
+You are provided with an array of tasks, which you will need to pass as props to the component
+The component renders 2 buttons
+ 1. Find Task by ID
+ 2. Show Completed Tasks
+Take the id as an input using the prompt() method
+If the element is found, then display the title and its completion status, else display task with id not found
+Once the user clicks on the button, then display only the completed tasks title comma separated
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Find By Id & Completed
+    </title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        // Your code goes here 
+        const tasks = [
+            { id: 1, title: 'Task 1', isCompleted: true },
+            { id: 2, title: 'Task 2', isCompleted: true },
+            { id: 3, title: 'Task 3', isCompleted: false },
+            { id: 4, title: 'Task 4', isCompleted: false },
+            { id: 5, title: 'Task 5', isCompleted: true }
+        ]
+
+        // Component TasksList
+
+        const TasksList = (props) => {
+
+            // 1. callback function
+            const record = () => {
+
+                const dataInput = JSON.parse(prompt('Enter ID'))
+
+                const result = props.data.find((ele) => {
+                    return dataInput === ele.id
+                })
+
+                result === undefined ? alert(`Task with id - ${dataInput} not found`) : alert(`${result.title} - ${result.isCompleted}`)
+            }
+
+            // 2. callback function
+            const taskcomplete = () => {
+
+                const complete = props.data.filter((ele) => {
+                    return ele.isCompleted
+                })
+
+                let result = []
+                complete.forEach((ele) => {
+                    result.push(ele.title)
+                })
+                alert(result)
+            }
+
+            // Return React Element Via JSX
+            return (
+                <div>
+                    <button onClick={record}>Find Task by ID</button>
+                    <button onClick={taskcomplete}>Show Completed Tasks</button>
+                </div>
+            )
+        }
+
+
+        const ele = <TasksList data={tasks} />
+
+        ReactDOM.render(ele, rootHandle)
+
+    </script>
+</body>
+
+</html>

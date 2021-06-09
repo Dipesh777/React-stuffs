@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template File</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        const Parent = (props) => {
+            const userName1 = 'Dipesh'
+            const userName2 = 'Parth'
+
+            return (
+                <div>
+                    <h1>Parent Component</h1>
+                    <Child name={userName1}/>
+                    <Child name={userName2}/>
+                    <Child name='Vinay'/>
+                </div>
+            )
+        }
+
+        const Child = (props) => {
+       
+            return (
+                <h3>Child Component - {props.name}</h3>
+            )
+        }
+
+        ReactDOM.render(<Parent />, rootHandle)
+    </script>
+</body>
+
+</html>

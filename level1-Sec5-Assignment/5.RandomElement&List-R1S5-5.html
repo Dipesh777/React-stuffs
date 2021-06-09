@@ -1,0 +1,66 @@
+<!-- 
+   Random Element & List
+   
+Functional Requirements:-
+Create a component called as RandomElement
+You are provided with an array of fruits which you will pass as props to the component
+The component renders a button " Pick random " and all the fruits as a list
+When the user clicks on the button, pick a random element from the array and display using the alert() method
+The event handler function needs to be declared inside the component
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Random Element & List
+    </title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        // Your code goes here 
+
+        const fruits = ['apple', 'water melon', 'strawberry', 'kiwi']
+
+        // component RandomElement
+
+        const RandomElement = (props) => {
+
+            // callback function
+            const randomFruits = () => {
+                const random = Math.round(Math.random() * (props.fruit.length - 1))
+                const fruitRandom = props.fruit[random]
+                alert(fruitRandom)
+            }
+
+            return (
+                <div>
+                    <button onClick={randomFruits}>Pick Random</button>
+                    <ul>
+                        {props.fruit.map((ele, ind) => {
+                            return <li key={ind}>{ele}</li>
+                        })}
+                    </ul>
+                </div>
+            )
+        }
+
+        const ele = <RandomElement fruit={fruits} />
+
+        ReactDOM.render(ele, rootHandle)
+    </script>
+</body>
+
+</html>

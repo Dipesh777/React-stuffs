@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template File</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+        const data = {
+            source : 'Banglore',
+            destination : 'Mysore',
+            distance : '140 kms',
+            duration : '3 hours 30 mins'
+        }
+
+        // want to print the sting of :
+        // The distance between banglore and mysore is 140 kms and the time taken to travel is 3 hours 30 mins
+        // using JSX 
+
+        const ele = <p>The distance between {data.source} and {data.destination} is {data.distance} and the time taken to travel is {data.duration}</p>
+
+        ReactDOM.render(ele, rootHandle)
+    </script>
+</body>
+
+</html>

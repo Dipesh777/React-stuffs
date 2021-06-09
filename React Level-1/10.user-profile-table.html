@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user profile via table</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        const user = {
+            firstName: 'Josphe',
+            email: 'josphe@gmail.com',
+            avatar: 'https://i.picsum.photos/id/1/367/267.jpg?hmac=jZdc5TviQPVhxLyvyU8siO-I5FMVXVZpBhsBYKbBJpM'
+        }
+
+        // creating table to display the user data using jsx
+
+        const ele = (
+            <table>
+                <thead>
+                    <tr>
+                        <th>pic</th>
+                        <th>name</th>
+                        <th>email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src={user.avatar} alt={user.firstName} /></td>
+                        <td> {user.firstName} </td>
+                        <td> {user.email} </td>
+                    </tr>
+                </tbody>
+            </table>
+        )
+
+    ReactDOM.render(ele, rootHandle)
+    </script>
+</body>
+
+</html>

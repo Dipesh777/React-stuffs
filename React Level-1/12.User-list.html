@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user list for array of objects</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        const user = [
+            { id: 1, name: 'user1' },
+            { id: 2, name: 'user2' },
+            { id: 3, name: 'user3' }
+        ]
+
+        /*
+        h2 - Listing user (count)
+        ul - list all the users
+        */
+
+        const ele = (
+            <div>
+                <h2>Listing user {user.length}</h2>
+                <ul>
+                    {user.map((ele) => {
+                        return <li> {ele.name} </li>
+                    })}
+                </ul>
+            </div>
+        )
+
+        ReactDOM.render(ele, rootHandle)
+    </script>
+</body>
+
+</html>

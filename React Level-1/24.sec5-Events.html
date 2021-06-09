@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template File</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        // // callback function
+        // const alertMe = () =>{
+        //     alert('Hello , You Have clicked Button')
+        // }
+
+        // const ele = <button onClick={alertMe}>click Me !!</button>
+
+        // component
+
+        const GreetUser = (props) => { //component
+
+
+            // Event handler or callback function
+
+            const msg = () => {
+                alert('Hello,' + props.name + ' you have clicked button')
+            }
+            // Listing event 
+            return <button onClick={msg}>Click Me!!</button>
+        }
+
+        const ele = <GreetUser name='Adam' />
+
+        ReactDOM.render(ele, rootHandle)
+    </script>
+</body>
+
+</html>

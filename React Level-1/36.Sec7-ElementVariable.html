@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template File</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        const AuthBtn = (props) => {
+            const { isLoggedIn } = props; //ES6 - Object Destructring
+
+            let btn
+            if (isLoggedIn) {
+                btn = <button>Logout</button>
+            } else {
+                btn = <button>LogIn</button>
+            }
+            return (
+                <div>
+                    {btn}
+                </div>
+            )
+        }
+
+        const App = (props) => {
+            const isLoggedIn = true;
+            // const isLoggedIn = false;
+            return (
+                <div>
+                    <h2>Welcome to the Websites</h2>
+                    <AuthBtn isLoggedIn={isLoggedIn} />
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App />, rootHandle)
+    </script>
+</body>
+
+</html>

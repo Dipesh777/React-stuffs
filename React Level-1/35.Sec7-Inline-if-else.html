@@ -1,0 +1,65 @@
+<!-- 
+    Functional requriement
+    if cart is empty then display your cart is empty
+    if cart have items then display you have no of items in your cart
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline If ELse conditional rendering</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        const CartStatus = (props) => {  //child component
+            const { data } = props // es6 - Object Destructring
+            // const newVariable = props.data // es5 - Object Destructring
+
+            return (
+                <div>
+                    {
+                        data.length > 0 ? (
+                            <p>you have {data.length} items in cart</p>
+                        ) : (
+                            <p>your cart is empty</p>
+                        )
+                    }
+                </div>
+            )
+
+        }
+
+        const App = (props) => {  // parent component
+            const items = [
+                { id: 1, name: 'product1', quantity: 1, price: 10 },
+                { id: 2, name: 'product2', quantity: 10, price: 100 }
+            ]
+
+            return (
+                <div>
+                    <h2>Cart Page</h2>
+                    <CartStatus data={items} />
+                </div>
+
+            )
+        }
+
+        ReactDOM.render(<App />, rootHandle)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mulltiple child in element</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="Fendamentals/JS/react.development.js"></script>
+    <script src="Fendamentals/JS/react-dom.development.js"></script>
+    <script src="Fendamentals/JS/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        const user = {
+            firstName: 'Joseph',
+            email: 'joseph@gmail.com',
+            avatar: 'https://i.picsum.photos/id/1/367/267.jpg?hmac=jZdc5TviQPVhxLyvyU8siO-I5FMVXVZpBhsBYKbBJpM'
+        }
+
+        /* create jsx to render multiple element
+        h2 - display user name
+        img - display user image
+        p - display user email
+        */
+
+        const ele = (
+            <div>
+                <h2> {user.firstName} </h2>
+                <img src={user.avatar} alt={user.firstName} />
+                <p>{user.email}</p>
+            </div>
+        )
+
+        ReactDOM.render(ele, rootHandle)
+    </script>
+</body>
+
+</html>
